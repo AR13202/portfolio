@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Cal+Sans&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Cal+Sans&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.loaderFontFamily {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.poppinsFont{
+      font-family: "Cal Sans", sans-serif;
+}
+
+.calSans{
+    font-family: "Cal Sans", sans-serif;
+}
+
+.title-container{
+  position: absolute;
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column;
+  font-family: "Cal Sans", sans-serif;
+  /* border: 2px solid red; */
+  inset: 0;
+  display: flex;
+  margin: 0 auto;
+  width: 65%;
+  justify-content: end;
+  align-items: end;
+  bottom: 30dvh;
+  /* letter-spacing: 0rem; */
+  color: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 10; 
+}
+.title-container-typewriter {
+  margin: 0; /* remove default margins */
+  line-height: 1; /* tighten vertical spacing */
+  letter-spacing: -4px;
+}
+.title-container-text {
+  color: #fff;
+  font-size: clamp(3rem,5vw,3rem);
+}
+
+.title-container-typewriter {
+    font-weight: 900;
+    font-size: clamp(5rem,10vw,7rem);
+    padding: 0;
+}
+
+.title-container-MyWork {
+    font-weight: 900;
+    font-size: clamp(3rem,10vw,5rem);
+    padding: 0;
+    margin: 0; /* remove default margins */
+    line-height: 1; /* tighten vertical spacing */
+    letter-spacing: -4px;
+}
+  
+.title-container-subHeading {
+    height: 0.1rem;
+    font-size: clamp(3rem,1vw,2rem);
+}
+
+.about-line {
+  position: relative; /* changed from absolute */
+  text-align: center;
+  font-family: "Cal Sans", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #c6c5c5;
+  line-height: 1.4;
+  letter-spacing: -2px;
+  opacity: 0; /* initial hidden for GSAP */
+  margin: 2rem 0; /* optional spacing between lines */
+}
+
+.skillsHeading {
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  padding: 0;
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  display: inline-block; /* needed for transform */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.animateText {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFadeIn 0.4s forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mwg_effect000 .medias img {
+    pointer-events: none;
+    will-change: transform;
+}
