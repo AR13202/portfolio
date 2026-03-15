@@ -5,7 +5,6 @@ import SecondSection from "./components/SecondSection";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { stagger } from 'animejs';
 import Loader from "./components/Loader";
 import ThirdSection from "./components/ThirdSection";
 import FourthSection from "./components/FourthSection";
@@ -128,10 +127,8 @@ function App() {
   const aboutTextRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
-  const aboutStartRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const skillSection = useRef<HTMLDivElement>(null);
-  const skillSectionHeading = useRef<HTMLDivElement>(null);
   const skillSectionContainer = useRef<HTMLDivElement>(null);
   // gsap
   useEffect(() => {
@@ -229,18 +226,7 @@ function App() {
     const ctx2 = gsap.context(()=>{
       const root = document.getElementById("skillContainer");
       if(!root) return;
-      const skill = document.getElementsByClassName("media");
-      const skillHeading = document.getElementById("skillHeading");
-      const handleSkillHeading = document.getElementById("makeSkillHeadingVisible");
-      const handleSkills = document.getElementById("makeSkillsVisible");
-      if(!handleSkillHeading || !handleSkills) return;
-      if(!skillHeading) return;
-      gsap.set([skill],{
-        opacity:0,
-      })
-      gsap.set(skillHeading,{
-        transformPerspective:1000,
-      })
+      
       gsap.fromTo(root,{
         opacity:0,
       },{
@@ -254,31 +240,6 @@ function App() {
           trigger:root,
           start: "top 80%",
           end:"top 25%",
-          scrub:true,
-          // markers:true,
-        }
-      })
-      gsap.fromTo(skillHeading,{rotationX:-90},{
-        rotationX:0,
-        duration:1,
-        ease:"power2.out",
-        scrollTrigger:{
-          trigger:handleSkillHeading,
-          start: "top 80%",
-          end:"top 30%",
-          scrub:true,
-          // markers:true,
-        }
-      })
-      gsap.to(skill,{
-        opacity:1,
-        duration:1,
-        ease:"power2.out",
-        stagger:0.1,
-        scrollTrigger:{
-          trigger:handleSkills,
-          start: "top 80%",
-          end:"top 30%",
           scrub:true,
           // markers:true,
         }
@@ -407,19 +368,17 @@ function App() {
             </div>
           </div>
       </div>
-      {/* <Loader/> */}
+      <Loader />
       <FirstSection
         titleRef={titleRef}
         quoteRef={quoteRef}
         aboutTextRef={aboutTextRef}
         containerRef={containerRef}
         canvasContainerRef={canvasContainerRef}
-        aboutStartRef={aboutStartRef}
         experienceRef={experienceRef}
       />
       <SecondSection
         skillSection={skillSection}
-        skillSectionHeading={skillSectionHeading}
         skillSectionContainer={skillSectionContainer}
       />
       <ThirdSection/>

@@ -10,8 +10,7 @@ const FirstSection = ({
   aboutTextRef,
   containerRef,
   canvasContainerRef,
-  experienceRef,
-  aboutStartRef
+  experienceRef
 }: {
   titleRef: Ref<HTMLDivElement> | undefined,
   quoteRef: Ref<HTMLDivElement> | undefined,
@@ -19,11 +18,9 @@ const FirstSection = ({
   containerRef: Ref<HTMLDivElement> | undefined,
   canvasContainerRef: Ref<HTMLDivElement> | undefined,
   experienceRef: Ref<HTMLDivElement> | undefined,
-  aboutStartRef: Ref<HTMLDivElement> | undefined,
 }) => {
 
   const aboutText1Ref = useRef<HTMLDivElement>(null);
-  const aboutText2Ref = useRef<HTMLDivElement>(null);
 
   const content = [
     "“Full-stack developer who writes fewer bugs than a rainforest, fueled by coffee, curiosity, and questionable Google searches.”",

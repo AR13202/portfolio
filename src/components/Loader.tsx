@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 const Loader = () => {
   const [loading, setLoading] = useState(0);
-  const [currentTask, setCurrentTask] = useState(0);
 
   // Example list of tasks (replace with your actual tasks)
   const tasks = [
@@ -26,7 +25,6 @@ const Loader = () => {
     const runTasks = async () => {
       let currentProgress = 0; // track the current progress
       for (let i = 0; i < tasks.length; i++) {
-        setCurrentTask(i + 1);
         await tasks[i](); // wait for the task to finish
 
         const targetProgress = Math.floor(((i + 1) / tasks.length) * 100);
@@ -49,7 +47,7 @@ const Loader = () => {
   }, []);
 
   return (
-    <div className={`${loading==100 ? '-top-[100%]': 'top-0'} transition-all duration-1500 ease-in-out loader bg-black left-0 z-99 w-[100dvw] h-[100dvh] flex flex-col justify-center items-center`}>
+    <div className={`fixed top-0 left-0 z-[100] w-[100dvw] h-[100dvh] flex flex-col justify-center items-center bg-black transition-transform duration-1000 ease-in-out ${loading === 100 ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="relative">
         <SVG2 />
         <div className="absolute top-0 left-0"><SVG /></div>
